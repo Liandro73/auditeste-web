@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features   = "src/test/resources/features/navega_pelo_site_auditeste.feature",
         glue       = "steps",
-        tags	   = "@paginainicial",
+        tags	   = "",
         plugin	   = {"pretty"},
         monochrome = true
 )

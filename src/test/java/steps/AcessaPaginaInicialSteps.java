@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PaginaInicial;
 import pages.PopupChatBot;
+import pages.QuemSomos;
+import pages.Rodape;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +20,8 @@ public class AcessaPaginaInicialSteps{
 
     private static WebDriver driver;
     private PaginaInicial homePage = new PaginaInicial(driver);
-    private PopupChatBot popupChatBot = new PopupChatBot(driver);
+    private Rodape rodape = new Rodape(driver);
+    private QuemSomos quemsomos = new QuemSomos(driver);
 
     private String tituloPagina = "AUDITESTE - ESPECIALISTAS EM QUALIDADE DE SOFTWARE";
     private String telefoneHome = "+55 11 3236-6600";
@@ -45,8 +48,8 @@ public class AcessaPaginaInicialSteps{
         assertEquals(homePage.obterNumeroAuditesteHome(), (telefoneHome));
     }
 
-    @Quando("eu navego pela pagina")
-    public void eu_navego_pela_pagina() {
+    @Quando("eu navego pela pagina inicial")
+    public void eu_navego_pela_pagina_inicial() {
         assertEquals(homePage.obterTituloContainerEsquerdoHome(), ("Solidez de Mercado"));
         assertEquals(homePage.obterTextoContainerEsquerdoHome(), ("Há mais de 19 anos trazendo as melhores e mais modernas soluções em\n" +
                 "testes de software."));
@@ -102,31 +105,31 @@ public class AcessaPaginaInicialSteps{
 
     @Entao("visualizo o rodape do site")
     public void visualizo_o_rodape_do_site() {
-        assertEquals(homePage.obterTextoRodapeContato(), ("Contato"));
-        assertEquals(homePage.obterTextoLinkRodapeTelefone(), ("+55 11 3236-6600"));
-        assertEquals(homePage.obterTextoLinkRodapeUnidade(), ("Unidade Centro"));
-        assertEquals(homePage.obterTextoLinkRodapeEndereco(), ("Av. Ipiranga, 344 – 9º andar República, São Paulo – SP"));
-        assertEquals(homePage.obterTextoRodapeQuemSomos(), ("Quem Somos"));
-        assertEquals(homePage.obterTextoLinkRodapeHistoria(), ("História"));
-        assertEquals(homePage.obterTextoLinkRodapeMissaoVisaoEValores(), ("Missão, Visão e Valores"));
-        assertEquals(homePage.obterTextoLinkRodapeNossosClientes(), ("Nossos Clientes"));
-        assertEquals(homePage.obterTextoRodapeServicos(), ("Serviços"));
-        assertEquals(homePage.obterTextoLinkRodapeFabricaDeTestes(), ("Fábrica de Testes;"));
-        assertEquals(homePage.obterTextoLinkRodapeAutomatizacaoDeTestes(), ("Automatização de Testes;"));
-        assertEquals(homePage.obterTextoLinkRodapeTestesMobile(), ("Testes Mobile"));
-        assertEquals(homePage.obterTextoLinkRodapeTestesManuais(), ("Testes Manuais;"));
-        assertEquals(homePage.obterTextoLinkRodapeTestesFuncionaisENaoFuncionais(), ("Testes Funcionais e Não Funcionais;"));
-        assertEquals(homePage.obterTextoLinkRodapeAlocacaoDeProfissionais(), ("Alocação de Profissionais"));
-        assertEquals(homePage.obterTextoLinkRodapeAutomacaoDeProcessos(), ("Automação de Processos"));
-        assertEquals(homePage.obterTextoLinkRodapeCrowdsourcedAuditeste(), ("Crowdsourced Auditeste"));
-        assertEquals(homePage.obterTextoLinkRodapeConsultoria(), ("Consultoria."));
-        assertEquals(homePage.obterTextoLinkRodapeCasesDeSucesso(), ("Cases de Sucesso"));
-        assertEquals(homePage.obterTextoLinkRodapeTrabalheConosco(), ("Trabalhe Conosco"));
-        assertEquals(homePage.obterTextoLinkRodapeBlog(), ("Blog"));
-        assertEquals(homePage.obterTextoLinkRodapeWebmail(), ("Webmail"));
-        assertEquals(homePage.obterTextoRodapeContateNos(), ("Contate-nos"));
-        assertEquals(homePage.obterTextoRodapeEmailMarketingAuditeste(), ("marketing@auditeste.com.br"));
-        assertEquals(homePage.obterTextoRodapeCopyright(), ("Copyright © 2017 AudiTeste - Todos os direitos reservados."));
+        assertEquals(rodape.obterTextoRodapeContato(), ("Contato"));
+        assertEquals(rodape.obterTextoLinkRodapeTelefone(), (telefoneHome));
+        assertEquals(rodape.obterTextoLinkRodapeUnidade(), ("Unidade Centro"));
+        assertEquals(rodape.obterTextoLinkRodapeEndereco(), ("Av. Ipiranga, 344 – 9º andar República, São Paulo – SP"));
+        assertEquals(rodape.obterTextoRodapeQuemSomos(), ("Quem Somos"));
+        assertEquals(rodape.obterTextoLinkRodapeHistoria(), ("História"));
+        assertEquals(rodape.obterTextoLinkRodapeMissaoVisaoEValores(), ("Missão, Visão e Valores"));
+        assertEquals(rodape.obterTextoLinkRodapeNossosClientes(), ("Nossos Clientes"));
+        assertEquals(rodape.obterTextoRodapeServicos(), ("Serviços"));
+        assertEquals(rodape.obterTextoLinkRodapeFabricaDeTestes(), ("Fábrica de Testes;"));
+        assertEquals(rodape.obterTextoLinkRodapeAutomatizacaoDeTestes(), ("Automatização de Testes;"));
+        assertEquals(rodape.obterTextoLinkRodapeTestesMobile(), ("Testes Mobile"));
+        assertEquals(rodape.obterTextoLinkRodapeTestesManuais(), ("Testes Manuais;"));
+        assertEquals(rodape.obterTextoLinkRodapeTestesFuncionaisENaoFuncionais(), ("Testes Funcionais e Não Funcionais;"));
+        assertEquals(rodape.obterTextoLinkRodapeAlocacaoDeProfissionais(), ("Alocação de Profissionais"));
+        assertEquals(rodape.obterTextoLinkRodapeAutomacaoDeProcessos(), ("Automação de Processos"));
+        assertEquals(rodape.obterTextoLinkRodapeCrowdsourcedAuditeste(), ("Crowdsourced Auditeste"));
+        assertEquals(rodape.obterTextoLinkRodapeConsultoria(), ("Consultoria."));
+        assertEquals(rodape.obterTextoLinkRodapeCasesDeSucesso(), ("Cases de Sucesso"));
+        assertEquals(rodape.obterTextoLinkRodapeTrabalheConosco(), ("Trabalhe Conosco"));
+        assertEquals(rodape.obterTextoLinkRodapeBlog(), ("Blog"));
+        assertEquals(rodape.obterTextoLinkRodapeWebmail(), ("Webmail"));
+        assertEquals(rodape.obterTextoRodapeContateNos(), ("Contate-nos"));
+        assertEquals(rodape.obterTextoRodapeEmailMarketingAuditeste(), ("marketing@auditeste.com.br"));
+        assertEquals(rodape.obterTextoRodapeCopyright(), ("Copyright © 2017 AudiTeste - Todos os direitos reservados."));
     }
 
 }
