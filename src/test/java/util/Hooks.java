@@ -8,12 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import pages.PaginaInicial;
-
 public class Hooks {
 
     private static WebDriver driver;
-    protected PaginaInicial homePage;
+
+    public Hooks(WebDriver driver) {
+        this.driver = driver;
+    }
 
     @Before
     public static void inicializar() {
@@ -26,7 +27,6 @@ public class Hooks {
     @BeforeEach
     public void carregarPaginaInicial() {
         driver.get("https://auditeste.com.br/");
-        homePage = new PaginaInicial(driver);
     }
 
 //    @After(order = 0)
@@ -40,7 +40,7 @@ public class Hooks {
 //        }
 //    }
 
-    @After(order = 1)
+    @After
     public static void finalizar() {
         driver.quit();
     }

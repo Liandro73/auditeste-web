@@ -62,9 +62,9 @@ public class PaginaInicial {
         this.driver = driver;
     }
 
-    public void carregarPaginaIncial() {
-        driver.get("https://auditeste.com.br/");
-    }
+//    public void carregarPaginaIncial() {
+//        driver.get("https://auditeste.com.br/");
+//    }
 
     public String obterTituloPagina() {
         return driver.getTitle().toUpperCase();
@@ -160,6 +160,10 @@ public class PaginaInicial {
 
     public String obterTextoTestesAutomatizados() {
         return driver.findElement(testesAutomatizados).getText();
+    }
+
+    public void clicarTextoTestesAutomatizados() {
+        driver.findElement(testesAutomatizados).click();
     }
 
     public String obterTextoFabricaTestes() {

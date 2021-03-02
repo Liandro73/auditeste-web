@@ -8,7 +8,6 @@ public class QuemSomos {
     private WebDriver driver;
 
     //Itens NavBar
-    private By menuItemHome = By.xpath("//*[@id=\"menu-item-132\"]/a");
     private By menuItemQuemSomos = By.xpath("//*[@id=\"menu-item-133\"]/a");
 
     private By tituloPagina = By.xpath("//div[contains(@class, 'wpb_column vc_column_container vc_col-sm-12')]//div//div/h1");
@@ -115,7 +114,7 @@ public class QuemSomos {
     }
 
     public boolean imgTituloMissaoAuditesteEstavisivel() {
-        return driver.findElement(imgTituloMissaoAuditeste).isEnabled();
+        return driver.findElement(imgTituloMissaoAuditeste).isDisplayed();
     }
 
     public String obterTextoMissaoAuditeste() {
@@ -123,7 +122,7 @@ public class QuemSomos {
     }
 
     public boolean imgTituloVisaoAuditesteEstavisivel() {
-        return driver.findElement(imgTituloVisaoAuditeste).isEnabled();
+        return driver.findElement(imgTituloVisaoAuditeste).isDisplayed();
     }
 
     public String obterTextoVisaoAuditeste() {
@@ -131,7 +130,7 @@ public class QuemSomos {
     }
 
     public boolean imgTituloValoresAuditesteEstavisivel() {
-        return driver.findElement(imgTituloValoresAuditeste).isEnabled();
+        return driver.findElement(imgTituloValoresAuditeste).isDisplayed();
     }
 
     public String obterTextoValoresAuditesteEtica() {

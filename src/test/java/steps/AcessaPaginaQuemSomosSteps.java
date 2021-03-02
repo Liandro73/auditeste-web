@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PaginaInicial;
 import pages.QuemSomos;
-import pages.Rodape;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AcessaPaginaQuemSomosSteps {
 
     private static WebDriver driver;
+
     private QuemSomos quemSomos = new QuemSomos(driver);
     private PaginaInicial homePage = new PaginaInicial(driver);
-    private Rodape rodape = new Rodape(driver);
 
     @Before
     public static void inicializar() {
@@ -28,6 +27,7 @@ public class AcessaPaginaQuemSomosSteps {
                 "/home/dernival_liandro/.webdrivers/chromedriver/88/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("https://auditeste.com.br/");
     }
 
     @After
@@ -37,7 +37,6 @@ public class AcessaPaginaQuemSomosSteps {
 
     @Dado("que estou na pagina quem somos")
     public void que_estou_na_pagina_quem_somos() {
-        homePage.carregarPaginaIncial();
         homePage.visualizarPopupHomeOffice();
         homePage.clicarBotaoFecharPopupHomeOffice();
         quemSomos.clicarMenuItemQuemSomos();
@@ -89,42 +88,13 @@ public class AcessaPaginaQuemSomosSteps {
         assertEquals(quemSomos.obterTextoServicos(), ("Clique e entenda melhor cada serviço."));
     }
 
-    @Quando("as cases da auditeste quem somos")
-    public void as_cases_da_auditeste_quem_somos() {
+    @Entao("visualizo as cases da auditeste quem somos")
+    public void visualizo_as_cases_da_auditeste_quem_somos() {
         assertEquals(quemSomos.obterTituloCasesAuditeste(), ("CASES DE SUCESSO"));
         assertEquals(quemSomos.obterTextoCasesAuditeste(), ("Quer conferir os cases de clientes que tiveram os seus respectivos projetos com qualidade e sucesso garantidos? clique aqui"));
 
         assertEquals(homePage.obterTextoSeuProjetoComSucessoGarantido(), ("Seu projeto com sucesso garantido!"));
         assertEquals(homePage.obterTextoLinkSolicitarOrcamento(), ("SOLICITE UM ORÇAMENTO"));
-    }
-
-    @Entao("visualizo o rodape do site quem somos")
-    public void visualizo_o_rodape_do_site_quem_somos() {
-        assertEquals(rodape.obterTextoRodapeContato(), ("Contato"));
-        assertEquals(rodape.obterTextoLinkRodapeTelefone(), ("+55 11 3236-6600"));
-        assertEquals(rodape.obterTextoLinkRodapeUnidade(), ("Unidade Centro"));
-        assertEquals(rodape.obterTextoLinkRodapeEndereco(), ("Av. Ipiranga, 344 – 9º andar República, São Paulo – SP"));
-        assertEquals(rodape.obterTextoRodapeQuemSomos(), ("Quem Somos"));
-        assertEquals(rodape.obterTextoLinkRodapeHistoria(), ("História"));
-        assertEquals(rodape.obterTextoLinkRodapeMissaoVisaoEValores(), ("Missão, Visão e Valores"));
-        assertEquals(rodape.obterTextoLinkRodapeNossosClientes(), ("Nossos Clientes"));
-        assertEquals(rodape.obterTextoRodapeServicos(), ("Serviços"));
-        assertEquals(rodape.obterTextoLinkRodapeFabricaDeTestes(), ("Fábrica de Testes;"));
-        assertEquals(rodape.obterTextoLinkRodapeAutomatizacaoDeTestes(), ("Automatização de Testes;"));
-        assertEquals(rodape.obterTextoLinkRodapeTestesMobile(), ("Testes Mobile"));
-        assertEquals(rodape.obterTextoLinkRodapeTestesManuais(), ("Testes Manuais;"));
-        assertEquals(rodape.obterTextoLinkRodapeTestesFuncionaisENaoFuncionais(), ("Testes Funcionais e Não Funcionais;"));
-        assertEquals(rodape.obterTextoLinkRodapeAlocacaoDeProfissionais(), ("Alocação de Profissionais"));
-        assertEquals(rodape.obterTextoLinkRodapeAutomacaoDeProcessos(), ("Automação de Processos"));
-        assertEquals(rodape.obterTextoLinkRodapeCrowdsourcedAuditeste(), ("Crowdsourced Auditeste"));
-        assertEquals(rodape.obterTextoLinkRodapeConsultoria(), ("Consultoria."));
-        assertEquals(rodape.obterTextoLinkRodapeCasesDeSucesso(), ("Cases de Sucesso"));
-        assertEquals(rodape.obterTextoLinkRodapeTrabalheConosco(), ("Trabalhe Conosco"));
-        assertEquals(rodape.obterTextoLinkRodapeBlog(), ("Blog"));
-        assertEquals(rodape.obterTextoLinkRodapeWebmail(), ("Webmail"));
-        assertEquals(rodape.obterTextoRodapeContateNos(), ("Contate-nos"));
-        assertEquals(rodape.obterTextoRodapeEmailMarketingAuditeste(), ("marketing@auditeste.com.br"));
-        assertEquals(rodape.obterTextoRodapeCopyright(), ("Copyright © 2017 AudiTeste - Todos os direitos reservados."));
     }
 
 }
