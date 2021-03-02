@@ -62,10 +62,6 @@ public class PaginaInicial {
         this.driver = driver;
     }
 
-//    public void carregarPaginaIncial() {
-//        driver.get("https://auditeste.com.br/");
-//    }
-
     public String obterTituloPagina() {
         return driver.getTitle().toUpperCase();
     }

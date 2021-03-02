@@ -37,3 +37,9 @@
       E visualizo a pagina crowdsourced auditeste
       E visualizo a pagina alocacao de profissionais
       Entao visualizo a pagina automacao de processos
+
+      @casesdesucesso
+      Cenario: Deve mostrar a pagina cases de sucesso
+        Dado que estou na pagina cases de sucesso
+        Quando eu navego pela pagina cases de sucesso
+        Entao visualizo depoimentos cases de sucesso
