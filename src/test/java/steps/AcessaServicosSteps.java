@@ -1,7 +1,5 @@
 package steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
@@ -12,34 +10,19 @@ import pages.PaginaInicial;
 import pages.QuemSomos;
 import pages.Servicos;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AcessaServicosSteps {
 
-    private static WebDriver driver;
+    private static WebDriver driver = new ChromeDriver();
 
     private Servicos servicos = new Servicos(driver);
     private PaginaInicial homePage = new PaginaInicial(driver);
     private QuemSomos quemSomos = new QuemSomos(driver);
 
-    @Before
-    public static void inicializar() {
-        System.setProperty("webdriver.chrome.driver",
-                "/home/dernival_liandro/.webdrivers/chromedriver/88/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://auditeste.com.br/");
-    }
-
-    @After
-    public static void finalizar() {
-        driver.quit();
-    }
-
     @Dado("que estou na pagina servicos")
     public void que_estou_na_pagina_servicos() {
+        driver.get("https://auditeste.com.br/");
         homePage.visualizarPopupHomeOffice();
         homePage.clicarBotaoFecharPopupHomeOffice();
         homePage.clicarTextoTestesAutomatizados();
@@ -231,5 +214,7 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterPrimeiroTextoAutomacaoProcessos(), ("A automação de processos visa a otimização do ciclo de produção, identificando gargalos, pontos de ineficiência e desperdícios de recursos, permitindo monitoramento e controle de resultados, tanto de forma segmentada quanto global."));
         assertEquals(servicos.obterSegundoTextoAutomacaoProcessos(), ("Esse tipo de Automação possibilita o planejamento, a execução e o monitoramento de todos os processos de negócio, mantendo-os alinhados e permitindo sua constante melhoria."));
         assertEquals(servicos.obterTerceiroTextoAutomacaoProcessos(), ("Uma importante característica da automação de processos é a facilidade na extração de dados e indicadores, o que proporciona uma visão mais integral da organização e, consequentemente, melhora a tomada de decisões."));
+
+        driver.quit();
     }
 }

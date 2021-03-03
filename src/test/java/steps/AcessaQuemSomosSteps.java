@@ -1,7 +1,6 @@
 package steps;
 
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
@@ -10,33 +9,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PaginaInicial;
 import pages.QuemSomos;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AcessaPaginaQuemSomosSteps {
+public class AcessaQuemSomosSteps {
 
-    private static WebDriver driver;
+    private static WebDriver driver = new ChromeDriver();
 
     private QuemSomos quemSomos = new QuemSomos(driver);
     private PaginaInicial homePage = new PaginaInicial(driver);
 
-    @Before
-    public static void inicializar() {
-        System.setProperty("webdriver.chrome.driver",
-                "/home/dernival_liandro/.webdrivers/chromedriver/88/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://auditeste.com.br/");
-    }
-
-    @After
-    public static void finalizar() {
-        driver.quit();
-    }
-
     @Dado("que estou na pagina quem somos")
     public void que_estou_na_pagina_quem_somos() {
+        driver.get("https://auditeste.com.br/");
         homePage.visualizarPopupHomeOffice();
         homePage.clicarBotaoFecharPopupHomeOffice();
         quemSomos.clicarMenuItemQuemSomos();
@@ -95,6 +79,8 @@ public class AcessaPaginaQuemSomosSteps {
 
         assertEquals(homePage.obterTextoSeuProjetoComSucessoGarantido(), ("Seu projeto com sucesso garantido!"));
         assertEquals(homePage.obterTextoLinkSolicitarOrcamento(), ("SOLICITE UM ORÇAMENTO"));
+
+        driver.quit();
     }
 
 }

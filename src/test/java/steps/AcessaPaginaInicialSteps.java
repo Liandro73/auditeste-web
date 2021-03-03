@@ -30,8 +30,7 @@ public class AcessaPaginaInicialSteps{
         System.setProperty("webdriver.chrome.driver",
                 "/home/dernival_liandro/.webdrivers/chromedriver/88/chromedriver");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://auditeste.com.br/");
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
 //    @After(order = 0)
@@ -52,6 +51,7 @@ public class AcessaPaginaInicialSteps{
 
     @Dado("que estou na pagina inicial")
     public void que_estou_na_pagina_inicial() {
+        driver.get("https://auditeste.com.br/");
         homePage.visualizarPopupHomeOffice();
         homePage.clicarBotaoFecharPopupHomeOffice();
         assertEquals(homePage.obterTituloPagina(), (tituloPagina));
