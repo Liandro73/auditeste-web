@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PaginaInicial;
 import pages.TrabalheConosco;
+import util.Screenshot;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,6 +19,7 @@ public class AcessaTrabalheConoscoSteps {
 
     private TrabalheConosco trabalheConosco = new TrabalheConosco(driver);
     private PaginaInicial homePage = new PaginaInicial(driver);
+    private Screenshot screenshot = new Screenshot(driver);
 
     @Dado("que estou na pagina trabalhe conosco")
     public void que_estou_na_pagina_trabalhe_conosco() {
@@ -25,6 +29,11 @@ public class AcessaTrabalheConoscoSteps {
         trabalheConosco.clicarMenuItemTrabalheConosco();
         assertEquals(trabalheConosco.verificarSeEstaNaPaginaTrabalheConosco(), ("//TRABALHE\n" +
                 "CONOSCO"));
+        try {
+            screenshot.capturarScreenshot("dado_que_estou_na_pagina_trabalhe_conosco");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("eu navego pela pagina trabalhe conosco")
@@ -51,12 +60,22 @@ public class AcessaTrabalheConoscoSteps {
         assertEquals(trabalheConosco.verificarSeCampoAnexarTrabalheConoscoEstaVisivel(), (true));
         assertEquals(trabalheConosco.obterTextoTiposDeArquivosAceitosTrabalheConosco(), ("Arquivos aceitos: PDF, DOC, DOCX e TXT"));
         assertEquals(trabalheConosco.verificarSeBotaoEnviarFormularioTrabalheConosco(), (true));
+        try {
+            screenshot.capturarScreenshot("quando_eu_navego_pela_pagina_trabalhe_conosco");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Entao("visualizo solicitacao de orcamento na pagina trabalhe conosco")
     public void visualizo_solicitacao_de_orcamento_na_pagina_trabalhe_conosco() {
         assertEquals(trabalheConosco.obterTextoSeuProjetoComSucessoGarantido(), ("Seu projeto com sucesso garantido!"));
         assertEquals(trabalheConosco.obterTextoLinkSolicitarOrcamento(), ("SOLICITE UM ORÇAMENTO"));
+        try {
+            screenshot.capturarScreenshot("entao_visualizo_solicitacao_de_orcamento_na_pagina_trabalhe_conosco");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         driver.quit();
     }

@@ -5,12 +5,18 @@ import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PaginaInicial;
 import pages.QuemSomos;
 import pages.Rodape;
+import util.Screenshot;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,6 +27,7 @@ public class AcessaPaginaInicialSteps{
     private PaginaInicial homePage = new PaginaInicial(driver);
     private Rodape rodape = new Rodape(driver);
     private QuemSomos quemsomos = new QuemSomos(driver);
+    private Screenshot screenshot = new Screenshot(driver);
 
     private String tituloPagina = "AUDITESTE - ESPECIALISTAS EM QUALIDADE DE SOFTWARE";
     private String telefoneHome = "+55 11 3236-6600";
@@ -32,17 +39,6 @@ public class AcessaPaginaInicialSteps{
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
-
-//    @After(order = 0)
-//    public void capturarTela(String nomeTeste, String resultado) {
-//        TakesScreenshot camera = (TakesScreenshot) driver;
-//        File capturarTela = camera.getScreenshotAs(OutputType.FILE);
-//        try {
-//            Files.move(capturarTela, new File("resources/screenshots/" + nomeTeste + "_" + resultado + ".png"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     @After
     public static void finalizar() {
@@ -56,6 +52,11 @@ public class AcessaPaginaInicialSteps{
         homePage.clicarBotaoFecharPopupHomeOffice();
         assertEquals(homePage.obterTituloPagina(), (tituloPagina));
         assertEquals(homePage.obterNumeroAuditesteHome(), (telefoneHome));
+        try {
+            screenshot.capturarScreenshot("dado_que_estou_na_pagina_inicial");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("eu navego pela pagina inicial")
@@ -70,6 +71,11 @@ public class AcessaPaginaInicialSteps{
         assertEquals(homePage.obterTextoContainerDireitoHome(), ("Extraindo o melhor dos recursos\n" +
                 "tecnológicos para entregar um\n" +
                 "alto nível de qualidade."));
+        try {
+            screenshot.capturarScreenshot("quando_eu_navego_pela_pagina_inicial");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo os tipos de testes")
@@ -83,10 +89,15 @@ public class AcessaPaginaInicialSteps{
         assertEquals(homePage.obterTextoTestesFuncionaisENaoFuncionais(), ("Testes Funcionais e Não Funcionais"));
         assertEquals(homePage.obterTextoAutomacaoDeProcessos(), ("Automação de Processos"));
         assertEquals(homePage.obterTextoAlocacaoProfissionaisEspecializados(), ("Alocação de Profissionais Especializados"));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_os_tipos_de_testes");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Quando("as cases da auditeste")
-    public void as_cases_da_auditeste() {
+    @Quando("visualizo as cases da auditeste")
+    public void visualizo_as_cases_da_auditeste() {
         assertEquals(homePage.obterTituloCasesHome(), ("CASES"));
         assertEquals(homePage.obterSubtituloCasesHome(), ("Entenda o que fazemos através do sucesso de nossos clientes"));
 
@@ -106,6 +117,11 @@ public class AcessaPaginaInicialSteps{
 
         assertEquals(homePage.obterTextoSeuProjetoComSucessoGarantido(), ("Seu projeto com sucesso garantido!"));
         assertEquals(homePage.obterTextoLinkSolicitarOrcamento(), ("SOLICITE UM ORÇAMENTO"));
+        try {
+            screenshot.capturarScreenshot("visualizo_quando_as_cases_da_auditeste");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("acesso o chatbot")
@@ -140,6 +156,11 @@ public class AcessaPaginaInicialSteps{
         assertEquals(rodape.obterTextoRodapeContateNos(), ("Contate-nos"));
         assertEquals(rodape.obterTextoRodapeEmailMarketingAuditeste(), ("marketing@auditeste.com.br"));
         assertEquals(rodape.obterTextoRodapeCopyright(), ("Copyright © 2017 AudiTeste - Todos os direitos reservados."));
+        try {
+            screenshot.capturarScreenshot("entao_visualizo_o_rodape_do_site");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

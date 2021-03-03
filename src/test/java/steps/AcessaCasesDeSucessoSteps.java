@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CasesDeSucesso;
 import pages.PaginaInicial;
+import util.Screenshot;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,6 +19,7 @@ public class AcessaCasesDeSucessoSteps {
 
     private CasesDeSucesso casesDeSucesso = new CasesDeSucesso(driver);
     private PaginaInicial homePage = new PaginaInicial(driver);
+    private Screenshot screenshot = new Screenshot(driver);
 
     @Dado("que estou na pagina cases de sucesso")
     public void que_estou_na_pagina_cases_de_sucesso() {
@@ -24,6 +28,11 @@ public class AcessaCasesDeSucessoSteps {
         homePage.clicarBotaoFecharPopupHomeOffice();
         casesDeSucesso.clicarMenuItemCasesDeSucesso();
         assertEquals(casesDeSucesso.verificarSeEstaNaPaginaCasesDeSucesso(), ("//CASES DE SUCESSO"));
+        try {
+            screenshot.capturarScreenshot("dado_que_estou_na_pagina_cases_de_sucesso");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("eu navego pela pagina cases de sucesso")
@@ -34,6 +43,11 @@ public class AcessaCasesDeSucessoSteps {
         assertEquals(casesDeSucesso.obterLegendaImgPaginaCasesDeSucesso(), ("A Auditeste possui também um histórico de sucesso em automação de testes."));
         assertEquals(casesDeSucesso.obterTituloVideoPaginaCasesDeSucesso(), ("Automação de Testes"));
         assertEquals(casesDeSucesso.verificarVideoPaginaCasesDeSucessoEstaVisivel(), (true));
+        try {
+            screenshot.capturarScreenshot("quando_eu_navego_pela_pagina_cases_de_sucesso");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Entao("visualizo depoimentos cases de sucesso")
@@ -54,6 +68,11 @@ public class AcessaCasesDeSucessoSteps {
 
         assertEquals(casesDeSucesso.obterTextoSeuProjetoComSucessoGarantido(), ("Seu projeto com sucesso garantido!"));
         assertEquals(casesDeSucesso.obterTextoLinkSolicitarOrcamento(), ("SOLICITE UM ORÇAMENTO"));
+        try {
+            screenshot.capturarScreenshot("entao_visualizo_depoimentos_cases_de_sucesso");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         driver.quit();
     }

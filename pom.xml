@@ -12,6 +12,7 @@
         <junit.version>5.7.0</junit.version>
         <selenium.version>3.141.59</selenium.version>
         <cucumber.version>6.10.0</cucumber.version>
+        <apache.directory.version>2.4</apache.directory.version>
     </properties>
 
     <dependencies>
@@ -44,6 +45,12 @@
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.io</artifactId>
+            <version>${apache.directory.version}</version>
         </dependency>
 
     </dependencies>

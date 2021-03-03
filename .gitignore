@@ -27,6 +27,9 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+#screenshots
+*/screenshots/*
+
 # Package Files #
 *.jar
 *.war

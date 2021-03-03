@@ -11,7 +11,7 @@
     Dado que estou na pagina inicial
     Quando eu navego pela pagina inicial
     E visualizo os tipos de testes
-    E as cases da auditeste
+    E visualizo as cases da auditeste
     E acesso o chatbot
     Entao visualizo o rodape do site
 
@@ -55,3 +55,9 @@
       Dado que estou na pagina blog
       Quando eu navego pela pagina blog
       Entao visualizo solicitacao de orcamento na pagina blog
+
+    @contato
+    Cenario: Deve mostrar a pagina contato
+      Dado que estou na pagina contato
+      Quando eu navego pela pagina contato
+      Entao visualizo solicitacao de orcamento na pagina contato

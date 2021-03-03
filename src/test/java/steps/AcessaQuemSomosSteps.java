@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PaginaInicial;
 import pages.QuemSomos;
+import util.Screenshot;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,6 +20,7 @@ public class AcessaQuemSomosSteps {
 
     private QuemSomos quemSomos = new QuemSomos(driver);
     private PaginaInicial homePage = new PaginaInicial(driver);
+    private Screenshot screenshot = new Screenshot(driver);
 
     @Dado("que estou na pagina quem somos")
     public void que_estou_na_pagina_quem_somos() {
@@ -25,6 +29,11 @@ public class AcessaQuemSomosSteps {
         homePage.clicarBotaoFecharPopupHomeOffice();
         quemSomos.clicarMenuItemQuemSomos();
         assertEquals(quemSomos.verificarSeEstaNaPaginaQuemSomos(), ("//QUEM SOMOS"));
+        try {
+            screenshot.capturarScreenshot("dado_que_estou_na_pagina_quem_somos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("eu navego pela pagina quem somos")
@@ -37,6 +46,11 @@ public class AcessaQuemSomosSteps {
         assertEquals(quemSomos.obterTexto1BumTestesSoftware(), ("Anos antes da chegada do novo milênio, o setor da tecnologia precisava estar preparado e certificado de que esta mudança não impactaria negativamente os sistemas e empresas do mundo."));
         assertEquals(quemSomos.obterTexto2BumTestesSoftware(), ("E isso só poderia ser garantido com os testes de software, que simularia os cenários futuros, buscando neutralizar riscos e certificar a qualidade de todos os sistemas e funcionalidades envolvidas."));
         assertEquals(quemSomos.obterTexto3BumTestesSoftware(), ("O que auxiliou e muito os desenvolvedores da época e fez com que a transição de um milênio para outro fosse totalmente o oposto das previsões."));
+        try {
+            screenshot.capturarScreenshot("quando_eu_navego_pela_pagina_quem_somos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo sobre a auditeste")
@@ -57,6 +71,11 @@ public class AcessaQuemSomosSteps {
         assertEquals(quemSomos.obterTextoValoresAuditesteComprometimento(), ("Comprometimento;"));
         assertEquals(quemSomos.obterTextoValoresAuditesteRespeito(), ("Respeito;"));
         assertEquals(quemSomos.obterTextoValoresAuditesteQualidade(), ("Qualidade."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_sobre_a_auditeste");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo os tipos de servicos")
@@ -70,6 +89,11 @@ public class AcessaQuemSomosSteps {
         assertEquals(quemSomos.obterTextoServicosTestesFuncionaisENaoFuncionais(), ("Testes Funcionais e Não Funcionais"));
         assertEquals(quemSomos.obterTextoServicosAlocacaoProfissionaisEspecializados(), ("Alocação de Profissionais Especializados"));
         assertEquals(quemSomos.obterTextoServicos(), ("Clique e entenda melhor cada serviço."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_os_tipos_de_servicos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Entao("visualizo as cases da auditeste quem somos")
@@ -79,6 +103,11 @@ public class AcessaQuemSomosSteps {
 
         assertEquals(homePage.obterTextoSeuProjetoComSucessoGarantido(), ("Seu projeto com sucesso garantido!"));
         assertEquals(homePage.obterTextoLinkSolicitarOrcamento(), ("SOLICITE UM ORÇAMENTO"));
+        try {
+            screenshot.capturarScreenshot("entao_visualizo_as_cases_da_auditeste_quem_somos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         driver.quit();
     }

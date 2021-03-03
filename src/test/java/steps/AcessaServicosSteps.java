@@ -9,6 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PaginaInicial;
 import pages.QuemSomos;
 import pages.Servicos;
+import util.Screenshot;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,6 +22,8 @@ public class AcessaServicosSteps {
     private Servicos servicos = new Servicos(driver);
     private PaginaInicial homePage = new PaginaInicial(driver);
     private QuemSomos quemSomos = new QuemSomos(driver);
+    private Screenshot screenshot = new Screenshot(driver);
+
 
     @Dado("que estou na pagina servicos")
     public void que_estou_na_pagina_servicos() {
@@ -27,6 +32,11 @@ public class AcessaServicosSteps {
         homePage.clicarBotaoFecharPopupHomeOffice();
         homePage.clicarTextoTestesAutomatizados();
         assertEquals(servicos.verificarSeEstaEmServicos(), ("//TESTES AUTOMATIZADOS"));
+        try {
+            screenshot.capturarScreenshot("dado_que_estou_na_pagina_servicos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("eu navego pela pagina servicos")
@@ -82,6 +92,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterTextoGerenciadorAuditeste(), ("O G.A. (Gerenciador Auditeste) é uma ferramenta desenvolvida exclusivamente para extrair o melhor que a automatização pode proporcionar, sendo essencial e principal aliada em alguns segmentos de atuação. Coordenando e direcionando criteriosamente os robôs executores, a ferramenta proporciona aos nossos clientes informações gerenciais em tempo real, tornando possível o acompanhamento e análise dos testes executados ou em andamento."));
         assertEquals(servicos.visualizarPrimeiraImgGerenciadorAuditeste(), (true));
         assertEquals(servicos.visualizarSegundaImgGerenciadorAuditeste(), (true));
+        try {
+            screenshot.capturarScreenshot("quando_eu_navego_pela_pagina_servicos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo sobre a metodologia dos testes")
@@ -113,6 +128,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterTerceiroTextoMetodologiaTestes(), ("Sucesso de acesso aos ambientes"));
         assertEquals(servicos.obterQuartoTextoMetodologiaTestes(), ("Disponibilidade do ambiente de homologação"));
         assertEquals(servicos.obterQuintoTextoMetodologiaTestes(), ("Suporte à regras de negócio"));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_sobre_a_metodologia_dos_testes");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo as cases da auditeste servicos")
@@ -122,6 +142,11 @@ public class AcessaServicosSteps {
 
         assertEquals(homePage.obterTextoSeuProjetoComSucessoGarantido(), ("Seu projeto com sucesso garantido!"));
         assertEquals(homePage.obterTextoLinkSolicitarOrcamento(), ("SOLICITE UM ORÇAMENTO"));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_as_cases_da_auditeste_servicos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo a pagina testes funcionais e nao funcionais")
@@ -133,6 +158,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterTextoTestesFuncionais(), ("Os testes funcionais também são conhecidos como teste da “caixa-preta”, pois é realizado para entender o comportamento da aplicação durante a navegação do usuário, ou seja, testando definitivamente a funcionalidade do sistema, simulando um cenário de produção e identificando possíveis problemas na interface do mesmo."));
         assertEquals(servicos.obterTituloTestesNaoFuncionais(), ("TESTES NÃO FUNCIONAIS"));
         assertEquals(servicos.obterTextoTestesNaoFuncionais(), ("Testes não funcionais, diferentemente do anterior, não são relacionados à funcionalidade da aplicação em si, pois simulam os cenários de acessos, performance e estresse, testando os atributos de um componente do sistema efetuando uma verificação mais profunda e analítica do servidor."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_a_pagina_testes_funcionais_e_nao_funcionais");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo a pagina testes manuais")
@@ -142,6 +172,11 @@ public class AcessaServicosSteps {
 
         assertEquals(servicos.obterTextoTestesManuais(), ("Diferentemente dos testes automatizados, os testes manuais são executados somente por profissionais capacitados para tarefa, que seguem criteriosamente as documentações de requisitos e negócios, onde estão relacionadas às situações convencionais e não convencionais do sistema. Este documento tanto pode ser fornecido pelo cliente, como elaborado por nossos profissionais."));
         assertEquals(servicos.obterSegundoTextoTestesManuais(), ("Este tipo de teste envolve ainda mais o lado intelectual, analítico e lógico do ser humano, devido a necessidade de efetuar uma verificação minuciosa da aplicação a ser testada para identificação e neutralização de possíveis riscos e adequação a uma boa experiência do usuário."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_a_pagina_testes_manuais");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo a pagina testes mobile")
@@ -153,6 +188,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterTituloTestesMobile(), ("GARANTINDO A QUALIDADE"));
         assertEquals(servicos.obterPrimeiroTextoTestesMobile(), ("Para isso, existem os testes mobile que se diferenciam dos aplicados em desktop, pois a imensa variedade de modelos e sistemas de dispositivos móveis não permitem a padronização do ambiente, havendo a necessidade da elaboração de cenários específicos para cada tipo de aparelho."));
         assertEquals(servicos.obterSegundoTextoTestesMobile(), ("Além disso, a automação desses testes contam com ferramentas que permitem um envolvimento mais efetivo de todos profissionais do projeto no processo de validação da aplicação, sendo uma ótima solução para melhoria da experiência mobile."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_a_pagina_testes_mobile");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo a pagina fabrica de testes")
@@ -164,6 +204,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterPrimeiroTextoFabricaTestes(), ("A Auditeste possui vasta experiência no segmento de testes e certificação de software, entregando qualidade e garantindo o sucesso dos projetos e respectivamente a satisfação de seus clientes desde 2001."));
         assertEquals(servicos.obterSegundoTextoFabricaTestes(), ("Contam com profissionais capacitados e certificados (CTFL, IBQTS, Scrum, ITIL), com infraestrutura de qualidade e amplo domínio em ferramentas como: HP Quality Center, TFS, ALM Microfocus, UFT, Test Complete, Selenium, Test Link, Jira, Mantis, Ruby, entre outras."));
         assertEquals(servicos.obterTerceiroTextoFabricaTestes(), ("Possibilitando atender a demanda em testes e qualidade de software, agregando de fato aos resultados finais e sucesso dos projetos de seus clientes, atuando desde a gestão e estruturação inicial até a entrega e consequentemente satisfação dos usuários."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_a_pagina_fabrica_de_testes");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo a pagina consultoria")
@@ -173,6 +218,11 @@ public class AcessaServicosSteps {
 
         assertEquals(servicos.obterPrimeiroTextoConsultoria(), ("Otimizar a área de TI e promover a qualidade das aplicações é sempre um grande desafio, que na maioria das vezes pode desequilibrar a balança do custo x benefício, gerando um alto gasto para empresa e mínimos resultados. Por isso, para garantia do sucesso e certificação de qualidade de seus projetos em TI é de grande importância firmar parceria com uma empresa que tenha experiência de mercado e conhecimento necessário para atender as necessidades de seus clientes e gerar os resultados esperados."));
         assertEquals(servicos.obterSegundoTextoConsultoria(), ("E com a atuação desde 2001 e diversos cases de sucesso em seu portfólio, a Auditeste mostra que possui esses requisitos e o Know-How necessário para te atender, garantindo assim a tranquilidade e segurança de que tudo está sendo encaminhado para o sucesso."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_a_pagina_consultoria");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo a pagina crowdsourced auditeste")
@@ -190,6 +240,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterQuintoTextoCrowdsourced(), ("O Crowdsourced Auditeste (CA) cria a possibilidade de:"));
         assertEquals(servicos.obterSextoTextoCrowdsourced(), ("Execução de testes finais, em qualquer situação e ambiente de uso;"));
         assertEquals(servicos.obterSetimoTextoCrowdsourced(), ("Testes feitos de maneira colaborativa, porém remunerada, por voluntários freelancers e com perfis aproximados dos usuários finais (conforme requisitos informados pelo Cliente)."));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_a_pagina_crowdsourced_auditeste");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Quando("visualizo a pagina alocacao de profissionais")
@@ -204,6 +259,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterTextoPrimeiroBeneficioAlocacaoProfissionais(), ("Assertividade"));
         assertEquals(servicos.obterTextoSegundoBeneficioAlocacaoProfissionais(), ("Prazos Otimizados"));
         assertEquals(servicos.obterTextoTerceiroBeneficioAlocacaoProfissionais(), ("Otimização de Custos"));
+        try {
+            screenshot.capturarScreenshot("quando_visualizo_a_pagina_alocacao_de_profissionais");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Entao("visualizo a pagina automacao de processos")
@@ -214,6 +274,11 @@ public class AcessaServicosSteps {
         assertEquals(servicos.obterPrimeiroTextoAutomacaoProcessos(), ("A automação de processos visa a otimização do ciclo de produção, identificando gargalos, pontos de ineficiência e desperdícios de recursos, permitindo monitoramento e controle de resultados, tanto de forma segmentada quanto global."));
         assertEquals(servicos.obterSegundoTextoAutomacaoProcessos(), ("Esse tipo de Automação possibilita o planejamento, a execução e o monitoramento de todos os processos de negócio, mantendo-os alinhados e permitindo sua constante melhoria."));
         assertEquals(servicos.obterTerceiroTextoAutomacaoProcessos(), ("Uma importante característica da automação de processos é a facilidade na extração de dados e indicadores, o que proporciona uma visão mais integral da organização e, consequentemente, melhora a tomada de decisões."));
+        try {
+            screenshot.capturarScreenshot("entao_visualizo_a_pagina_automacao_de_processos");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         driver.quit();
     }
