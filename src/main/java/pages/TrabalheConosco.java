@@ -10,7 +10,7 @@ public class TrabalheConosco {
     //Itens NavBar
     private By menuItemTrabalheConosco = By.xpath("//*[@id=\"menu-item-135\"]/a");
 
-    private By tituloPaginaTrabalheConosco = By.xpath("//*[@id=\"wrapper\"]/div[1]/div[1]/div/div/div/h1");
+    private By tituloPaginaTrabalheConosco = By.xpath("//h1[contains(@class, 'vc_custom_heading titulo_site')]");
 
     private By textoPaginaTrabalheConosco = By.xpath("//*[@id=\"wrapper\"]/div[2]/div/div/div/div/div[2]");
     private By tituloCampoNomeTrabalheConosco = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div/div/div[2]/div[2]/div[10]/form/div[2]/div/div[1]/div/div/div/div/div[1]/label/span");

@@ -10,7 +10,8 @@ public class Servicos {
     //Itens NavBar
     private By menuItemServicos= By.xpath("//*[@id=\"menu-item-290\"]/a");
 
-    private By tituloPagina = By.xpath("//div[contains(@class, 'wpb_column vc_column_container vc_col-sm-12')]//div//div/h1");
+    private By tituloPagina = By.xpath("//h1[contains(@class, 'vc_custom_heading titulo_site')]");
+
     private By textoTestesAutomatizados = By.xpath("//*[@id=\"wrapper\"]/div[2]/div/div/div/div/div[2]/div/p");
     private By tituloHistoricoTestes = By.xpath("//*[@id=\"wrapper\"]/div[3]/div/div/div/div/h2/b");
     private By textoHistoricoTestes = By.xpath("//*[@id=\"wrapper\"]/div[3]/div/div/div/div/div[1]/div/p");
@@ -157,7 +158,7 @@ public class Servicos {
         this.driver = driver;
     }
 
-    public String verificarSeEstaEmTestesAutomatizados() {
+    public String verificarSeEstaEmServicos() {
         return driver.findElement(tituloPagina).getText();
     }
 

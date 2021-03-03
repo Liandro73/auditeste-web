@@ -10,7 +10,8 @@ public class CasesDeSucesso {
     //Itens NavBar
     private By menuItemCasesdeSucesso = By.xpath("//*[@id=\"menu-item-392\"]/a");
 
-    private By tituloPaginaCasesDeSucesso = By.xpath("//*[@id=\"TITULO-SITE\"]/div[1]/div/div/div/h1");
+    private By tituloPaginaCasesDeSucesso = By.xpath("//h1[contains(@class, 'vc_custom_heading titulo_site')]");
+
     private By tituloPaginaCasesDeSucessoAuditeste = By.xpath("//*[@id=\"wrapper\"]/div[2]/div/div[1]/div/div/h2");
     private By textoPaginaCasesDeSucesso = By.xpath("//*[@id=\"wrapper\"]/div[2]/div/div[1]/div/div/div/div/p");
     private By imgPaginaCasesDeSucesso = By.xpath("//*[@id=\"wrapper\"]/div[2]/div/div[2]/div/div/div[1]/figure/div/img");

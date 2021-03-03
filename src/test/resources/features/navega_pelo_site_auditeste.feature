@@ -49,3 +49,9 @@
       Dado que estou na pagina trabalhe conosco
       Quando eu navego pela pagina trabalhe conosco
       Entao visualizo solicitacao de orcamento na pagina trabalhe conosco
+
+    @blog
+    Cenario: Deve mostrar a pagina blog
+      Dado que estou na pagina blog
+      Quando eu navego pela pagina blog
+      Entao visualizo solicitacao de orcamento na pagina blog

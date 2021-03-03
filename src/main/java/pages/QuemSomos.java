@@ -10,7 +10,8 @@ public class QuemSomos {
     //Itens NavBar
     private By menuItemQuemSomos = By.xpath("//*[@id=\"menu-item-133\"]/a");
 
-    private By tituloPagina = By.xpath("//div[contains(@class, 'wpb_column vc_column_container vc_col-sm-12')]//div//div/h1");
+    private By tituloPagina = By.xpath("//h1[contains(@class, 'vc_custom_heading titulo_site')]");
+
     private By tituloBugMilenio = By.cssSelector("div:nth-child(3) > div > div.wpb_column.vc_column_container.vc_col-sm-6 > div > div > h2:nth-child(1) > b");
     private By texto1BugMilenio = By.cssSelector("div:nth-child(3) > div > div.wpb_column.vc_column_container.vc_col-sm-6 > div > div > div:nth-child(2) > div > p:nth-child(1)");
     private By texto2BugMilenio = By.cssSelector("div:nth-child(3) > div > div.wpb_column.vc_column_container.vc_col-sm-6 > div > div > div:nth-child(2) > div > p:nth-child(2)");

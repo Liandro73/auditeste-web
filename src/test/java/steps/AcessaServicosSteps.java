@@ -26,7 +26,7 @@ public class AcessaServicosSteps {
         homePage.visualizarPopupHomeOffice();
         homePage.clicarBotaoFecharPopupHomeOffice();
         homePage.clicarTextoTestesAutomatizados();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//TESTES AUTOMATIZADOS"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//TESTES AUTOMATIZADOS"));
     }
 
     @Quando("eu navego pela pagina servicos")
@@ -127,7 +127,7 @@ public class AcessaServicosSteps {
     @Quando("visualizo a pagina testes funcionais e nao funcionais")
     public void visualizo_a_pagina_testes_funcionais_e_nao_funcionais() {
         servicos.clicarLinkRodapeTestesFuncionaisENaoFuncionais();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//TESTES FUNCIONAIS NÃO FUNCIONAIS"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//TESTES FUNCIONAIS NÃO FUNCIONAIS"));
 
         assertEquals(servicos.obterTituloTestesFuncionais(), ("TESTES FUNCIONAIS"));
         assertEquals(servicos.obterTextoTestesFuncionais(), ("Os testes funcionais também são conhecidos como teste da “caixa-preta”, pois é realizado para entender o comportamento da aplicação durante a navegação do usuário, ou seja, testando definitivamente a funcionalidade do sistema, simulando um cenário de produção e identificando possíveis problemas na interface do mesmo."));
@@ -138,7 +138,7 @@ public class AcessaServicosSteps {
     @Quando("visualizo a pagina testes manuais")
     public void visualizo_a_pagina_testes_manuais() {
         servicos.clicarLinkRodapeTestesManuais();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//TESTES MANUAIS"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//TESTES MANUAIS"));
 
         assertEquals(servicos.obterTextoTestesManuais(), ("Diferentemente dos testes automatizados, os testes manuais são executados somente por profissionais capacitados para tarefa, que seguem criteriosamente as documentações de requisitos e negócios, onde estão relacionadas às situações convencionais e não convencionais do sistema. Este documento tanto pode ser fornecido pelo cliente, como elaborado por nossos profissionais."));
         assertEquals(servicos.obterSegundoTextoTestesManuais(), ("Este tipo de teste envolve ainda mais o lado intelectual, analítico e lógico do ser humano, devido a necessidade de efetuar uma verificação minuciosa da aplicação a ser testada para identificação e neutralização de possíveis riscos e adequação a uma boa experiência do usuário."));
@@ -147,7 +147,7 @@ public class AcessaServicosSteps {
     @Quando("visualizo a pagina testes mobile")
     public void visualizo_a_pagina_testes_mobile() {
         servicos.clicarLinkRodapeTestesMobile();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//TESTES MOBILE"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//TESTES MOBILE"));
 
         assertEquals(servicos.obterTextoTestesMobile(), ("O número de dispositivos móveis e os adeptos a esta tecnologia aumentam a cada dia, levando a grande necessidade das empresas adaptarem seus serviços e sistemas a este meio. Porém, é muito importante ao efetuar essa adaptação manter a qualidade, garantir o bom funcionamento e a boa usabilidade para o cliente, afinal é a reputação de sua empresa que está em jogo."));
         assertEquals(servicos.obterTituloTestesMobile(), ("GARANTINDO A QUALIDADE"));
@@ -158,7 +158,7 @@ public class AcessaServicosSteps {
     @Quando("visualizo a pagina fabrica de testes")
     public void visualizo_a_pagina_fabrica_de_testes() {
         servicos.clicarLinkRodapeFabricaDeTestes();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//FÁBRICA DE TESTES"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//FÁBRICA DE TESTES"));
 
         assertEquals(servicos.obterTituloTestesFabricaTestes(), ("LOCALIZAÇÃO"));
         assertEquals(servicos.obterPrimeiroTextoFabricaTestes(), ("A Auditeste possui vasta experiência no segmento de testes e certificação de software, entregando qualidade e garantindo o sucesso dos projetos e respectivamente a satisfação de seus clientes desde 2001."));
@@ -169,7 +169,7 @@ public class AcessaServicosSteps {
     @Quando("visualizo a pagina consultoria")
     public void visualizo_a_pagina_consultoria() {
         servicos.clicarLinkRodapeConsultoria();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//CONSULTORIA"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//CONSULTORIA"));
 
         assertEquals(servicos.obterPrimeiroTextoConsultoria(), ("Otimizar a área de TI e promover a qualidade das aplicações é sempre um grande desafio, que na maioria das vezes pode desequilibrar a balança do custo x benefício, gerando um alto gasto para empresa e mínimos resultados. Por isso, para garantia do sucesso e certificação de qualidade de seus projetos em TI é de grande importância firmar parceria com uma empresa que tenha experiência de mercado e conhecimento necessário para atender as necessidades de seus clientes e gerar os resultados esperados."));
         assertEquals(servicos.obterSegundoTextoConsultoria(), ("E com a atuação desde 2001 e diversos cases de sucesso em seu portfólio, a Auditeste mostra que possui esses requisitos e o Know-How necessário para te atender, garantindo assim a tranquilidade e segurança de que tudo está sendo encaminhado para o sucesso."));
@@ -178,7 +178,7 @@ public class AcessaServicosSteps {
     @Quando("visualizo a pagina crowdsourced auditeste")
     public void visualizo_a_pagina_crowdsourced_auditeste() {
         servicos.clicarLinkRodapeCrowdsourcedAuditeste();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//CROWDSOURCED AUDITESTE"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//CROWDSOURCED AUDITESTE"));
 
         assertEquals(servicos.obterTextoBotaoAcesseJaCrowdsourced(), ("ACESSE JÁ"));
         assertEquals(servicos.obterTextoBotaoCadastreSeCrowdsourced(), ("CADASTRE-SE"));
@@ -195,7 +195,7 @@ public class AcessaServicosSteps {
     @Quando("visualizo a pagina alocacao de profissionais")
     public void visualizo_a_pagina_alocacao_de_profissionais() {
         servicos.clicarLinkRodapeAlocacaoDeProfissionais();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//ALOCAÇÃO DE PROFISSIONAIS"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//ALOCAÇÃO DE PROFISSIONAIS"));
 
         assertEquals(servicos.obterPrimeiroTextoAlocacaoProfissionais(), ("Identificar perfis para qualquer oportunidade do mercado, já não é uma tarefa simples e para um nicho específico da área de TI que exigem requisitos, capacitações e certificações específicas, tornam a tarefa ainda mais árdua. Por isso, para as empresas que procuram profissionais de TI do setor de qualidade de software, nada melhor que deixar essa tarefa nas mãos de quem tem a experiência e os processos de seleção e avaliação necessários para trazer a você os melhores e mais capacitados profissionais do mercado."));
         assertEquals(servicos.obterSegundoTextoAlocacaoProfissionais(), ("A alocação de profissionais capacitados é realizada com as seguintes funções:"));
@@ -209,7 +209,7 @@ public class AcessaServicosSteps {
     @Entao("visualizo a pagina automacao de processos")
     public void visualizo_a_pagina_automacao_de_processos() {
         servicos.clicarLinkRodapeAutomacaoDeProcessos();
-        assertEquals(servicos.verificarSeEstaEmTestesAutomatizados(), ("//AUTOMAÇÃO DE PROCESSOS"));
+        assertEquals(servicos.verificarSeEstaEmServicos(), ("//AUTOMAÇÃO DE PROCESSOS"));
 
         assertEquals(servicos.obterPrimeiroTextoAutomacaoProcessos(), ("A automação de processos visa a otimização do ciclo de produção, identificando gargalos, pontos de ineficiência e desperdícios de recursos, permitindo monitoramento e controle de resultados, tanto de forma segmentada quanto global."));
         assertEquals(servicos.obterSegundoTextoAutomacaoProcessos(), ("Esse tipo de Automação possibilita o planejamento, a execução e o monitoramento de todos os processos de negócio, mantendo-os alinhados e permitindo sua constante melhoria."));
